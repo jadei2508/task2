@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var sliderValue: Double = 300
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            VStack {
+                Text("Марафон ").font(.title).foregroundColor(.gray) +
+                Text("по SwiftUI ").font(.title).foregroundColor(.black) +
+                Text("\"Отцовский пинок\"").font(.largeTitle).foregroundColor(.blue)
+            }.frame(width: sliderValue).border(.red)
+            Slider(value: $sliderValue, in: 100...300)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
         }
-        .padding()
     }
 }
 
